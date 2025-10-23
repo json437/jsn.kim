@@ -145,21 +145,22 @@ h1 {
   position: fixed;
   bottom: -280px;
   left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .waves-svg {
   display: block;
   width: 100%;
+  min-width: 100vw;
   height: auto;
   min-height: 300px;
   max-height: 550px;
-  object-fit: contain;
-  object-position: bottom;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
 /* Responsive wave heights and spacing */
@@ -169,12 +170,14 @@ h1 {
   }
   
   .waves-svg {
+    min-width: 100vw;
     max-height: 450px;
   }
 }
 
 @media (max-width: 768px) {
   .waves-svg {
+    min-width: 100vw;
     min-height: 250px;
     max-height: 400px;
   }
@@ -193,6 +196,7 @@ h1 {
 
 @media (max-width: 480px) {
   .waves-svg {
+    min-width: 100vw;
     min-height: 200px;
     max-height: 300px;
   }

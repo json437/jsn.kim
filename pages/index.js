@@ -66,7 +66,7 @@ export default function Home() {
         {/* Clouds container */}
         <div className="clouds-container"></div>
         
-        <main className="content-wrapper max-w-screen-lg mx-auto px-6">
+        <main className="content-wrapper max-w-xl mx-auto px-6">
         <div className="space-y-12 md:space-y-16">
           {/* Header Section */}
           <header className="space-y-8">
