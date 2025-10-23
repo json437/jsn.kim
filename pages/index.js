@@ -70,10 +70,10 @@ export default function Home() {
         <div className="space-y-12 md:space-y-16">
           {/* Header Section */}
           <header className="space-y-8">
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-black">
+            <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-black">
               Jason Kim
             </h1>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-black tracking-tight">
+            <p className="text-base md:text-xl lg:text-2xl font-light text-black tracking-tight">
               building{' '}
               <a 
                 href="https://pigeon.trade" 
@@ -85,28 +85,28 @@ export default function Home() {
               </a>{' '}
               — AI quant for infinite markets
             </p>
-            <p className="text-xl md:text-2xl text-black opacity-80 font-light">
+            <p className="text-sm md:text-base text-black opacity-80 font-light">
               YC alum
             </p>
           </header>
 
           {/* Investments Section */}
           <section className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-black">
+            <h2 className="text-base md:text-xl font-bold tracking-tight text-black">
               Investments
             </h2>
-            <p className="text-lg md:text-xl text-black opacity-90 leading-relaxed font-light">
+            <p className="text-sm md:text-base text-black opacity-90 leading-relaxed font-light">
               YieldBasis, Utopia (acq Coinbase), Bluelight (W21), Leah Labs (W19), Bree (S21), LayerUp (S22), and more
             </p>
           </section>
 
           {/* Find Me Section */}
           <section className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-black">
+            <h2 className="text-base md:text-xl font-bold tracking-tight text-black">
               Find me
             </h2>
             <div className="space-y-3">
-              <p className="text-xl md:text-2xl text-black opacity-90 font-light">
+              <p className="text-sm md:text-base text-black opacity-90 font-light">
                 <span className="font-medium">Twitter:</span>{' '}
                 <a 
                   href="https://twitter.com/jasonkimvc" 
@@ -117,7 +117,7 @@ export default function Home() {
                   @jasonkimvc
                 </a>
               </p>
-              <p className="text-xl md:text-2xl text-black opacity-90 font-light">
+              <p className="text-sm md:text-base text-black opacity-90 font-light">
                 <span className="font-medium">LinkedIn:</span>{' '}
                 <a 
                   href="https://linkedin.com/in/jasonkimbc"
