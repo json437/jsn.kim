@@ -52,17 +52,23 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Jason Kim" />
         <link rel="canonical" href="https://jsn.kim" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jsn.kim" />
         <meta property="og:title" content="Jason Kim" />
         <meta property="og:description" content="Product Builder and Founder" />
         <meta property="og:site_name" content="Jason Kim" />
+        <meta property="og:image" content="https://jsn.kim/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jasonkimvc" />
         <meta name="twitter:title" content="Jason Kim" />
         <meta name="twitter:description" content="Product Builder and Founder" />
+        <meta name="twitter:image" content="https://jsn.kim/og-image.jpg" />
 
         <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
