@@ -145,7 +145,7 @@ export default function Home() {
         <section className="mb-10">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Investments</h2>
           <p className="text-secondary">
-            Supporting friends and smart builders with small checks. Invested in 5+ YC startups including <a href="https://gru.space" target="_blank" rel="noopener noreferrer">Gru Space</a>, Bree, and more.
+            Supporting friends and smart builders with small checks. Invested in 6+ YC and VC backed startups including <a href="https://gru.space" target="_blank" rel="noopener noreferrer">Gru Space</a>, Bree, and more.
           </p>
         </section>
 
