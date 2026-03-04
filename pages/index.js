@@ -48,7 +48,7 @@ export default function Home() {
     <>
       <Head>
         <title>Jason Kim</title>
-        <meta name="description" content="Product Builder and Founder" />
+        <meta name="description" content="Jason Kim. Product builder and founder. YC alum. Building at the intersection of AI, cryptography, and markets. Based in NYC and SF." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Jason Kim" />
         <link rel="canonical" href="https://jsn.kim" />
@@ -58,7 +58,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jsn.kim" />
         <meta property="og:title" content="Jason Kim" />
-        <meta property="og:description" content="Product Builder and Founder" />
+        <meta property="og:description" content="Jason Kim. Product builder and founder. YC alum. Building at the intersection of AI, cryptography, and markets. Based in NYC and SF." />
         <meta property="og:site_name" content="Jason Kim" />
         <meta property="og:image" content="https://jsn.kim/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
@@ -67,7 +67,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jasonkimvc" />
         <meta name="twitter:title" content="Jason Kim" />
-        <meta name="twitter:description" content="Product Builder and Founder" />
+        <meta name="twitter:description" content="Jason Kim. Product builder and founder. YC alum. Building at the intersection of AI, cryptography, and markets. Based in NYC and SF." />
         <meta name="twitter:image" content="https://jsn.kim/og-image.jpg" />
 
         <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)" />
