@@ -1,143 +1,157 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
+import { useState, useRef, useEffect } from 'react';
+
+function PastItem({ name, role, children }) {
+  const [open, setOpen] = useState(false);
+  const contentRef = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [open]);
+
+  return (
+    <li>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full text-left flex items-baseline gap-2 group cursor-pointer"
+      >
+        <span className="font-medium">{name}</span>
+        <span className="text-secondary">{role}</span>
+        <span
+          className="text-secondary text-xs ml-auto transition-transform duration-300"
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        >
+          ▼
+        </span>
+      </button>
+      <div
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-400 ease-in-out"
+        style={{
+          maxHeight: open ? height + 'px' : '0px',
+          opacity: open ? 1 : 0,
+        }}
+      >
+        <p className="text-secondary mt-2 pl-0">
+          {children}
+        </p>
+      </div>
+    </li>
+  );
+}
 
 export default function Home() {
-  useEffect(() => {
-    // Animate the waves with a smooth flowing motion
-    const waves = document.querySelector('.waves-svg');
-    if (!waves) return;
-    
-    let time = 0;
-    
-    function animateWaves() {
-      time += 0.005;
-      
-      // Create a gentle horizontal movement
-      const x = Math.sin(time) * 15;
-      // Add a subtle vertical bobbing
-      const y = Math.sin(time * 1.5) * 3;
-      // Add a very subtle scale pulsing
-      const scale = 1.02 + Math.sin(time * 0.8) * 0.01;
-      
-      waves.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
-      
-      requestAnimationFrame(animateWaves);
-    }
-    
-    animateWaves();
-
-    // Create clouds
-    const cloudsContainer = document.querySelector('.clouds-container');
-    if (cloudsContainer) {
-      for (let i = 0; i < 15; i++) {
-        const cloud = document.createElement('div');
-        cloud.className = 'cloud';
-        cloud.style.top = `${Math.random() * 70 + 5}%`;
-        
-        // Scatter clouds across the screen initially
-        if (i < 8) {
-          // Initial clouds scattered across viewport
-          cloud.style.left = `${Math.random() * 100}%`;
-          cloud.style.animationDelay = `-${Math.random() * 50}s`; // Negative delay to start mid-animation
-        } else {
-          // Additional clouds starting from left
-          cloud.style.left = `${-300 + Math.random() * 200}px`;
-          cloud.style.animationDelay = `${(i - 8) * 5}s`;
-        }
-        
-        cloud.style.animationDuration = `${60 + Math.random() * 40}s`;
-        cloud.style.opacity = 0.25 + Math.random() * 0.25;
-        cloudsContainer.appendChild(cloud);
-      }
-    }
-  }, []);
-
   return (
     <>
       <Head>
         <title>Jason Kim</title>
-        <link rel="stylesheet" href="/ClashDisplay_Complete/Fonts/WEB/css/clash-display.css" />
+        <meta name="description" content="Product Builder and Founder" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Jason Kim" />
+        <link rel="canonical" href="https://jsn.kim" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jsn.kim" />
+        <meta property="og:title" content="Jason Kim" />
+        <meta property="og:description" content="Product Builder and Founder" />
+        <meta property="og:site_name" content="Jason Kim" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@jasonkimvc" />
+        <meta name="twitter:title" content="Jason Kim" />
+        <meta name="twitter:description" content="Product Builder and Founder" />
+
+        <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
       </Head>
-      
-      <div className="min-h-screen">
-        {/* Light rays effect */}
-        <div className="light-rays"></div>
-        
-        {/* Clouds container */}
-        <div className="clouds-container"></div>
-        
-        <main className="content-wrapper max-w-xl mx-auto px-6">
-        <div className="space-y-12 md:space-y-16">
-          {/* Header Section */}
-          <header className="space-y-8">
-            <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-black">
-              Jason Kim
-            </h1>
-            <p className="text-base md:text-xl lg:text-2xl font-light text-black tracking-tight">
-              building{' '}
-              <a 
-                href="https://pigeon.trade" 
-                className="text-[#A3FF12] font-medium hover:opacity-80 transition-opacity"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                pigeon.trade
-              </a>{' '}
-              — AI quant for infinite markets
-            </p>
-            <p className="text-sm md:text-base text-black opacity-80 font-light">
-              YC alum
-            </p>
-          </header>
 
-          {/* Investments Section */}
-          <section className="space-y-4">
-            <h2 className="text-base md:text-xl font-bold tracking-tight text-black">
-              Investments
-            </h2>
-            <p className="text-sm md:text-base text-black opacity-90 leading-relaxed font-light">
-              YieldBasis, Utopia (acq Coinbase), Bluelight (W21), Leah Labs (W19), Bree (S21), LayerUp (S22), and more
+      <main className="max-w-2xl mx-auto px-6 py-16 md:py-24">
+        <header className="mb-12 flex items-center gap-5">
+          <img
+            src="/pfp.jpeg"
+            alt="Jason Kim"
+            className="w-16 h-16 rounded-full object-cover shrink-0"
+          />
+          <div>
+            <h1 className="text-2xl font-bold mb-2">Jason Kim</h1>
+            <p className="text-secondary">
+              Product Builder and Founder
             </p>
-          </section>
+          </div>
+        </header>
 
-          {/* Find Me Section */}
-          <section className="space-y-4">
-            <h2 className="text-base md:text-xl font-bold tracking-tight text-black">
-              Find me
-            </h2>
-            <div className="space-y-3">
-              <p className="text-sm md:text-base text-black opacity-90 font-light">
-                <span className="font-medium">Twitter:</span>{' '}
-                <a 
-                  href="https://twitter.com/jasonkimvc" 
-                  className="text-black underline hover:opacity-70 transition-opacity italic font-normal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @jasonkimvc
-                </a>
-              </p>
-              <p className="text-sm md:text-base text-black opacity-90 font-light">
-                <span className="font-medium">LinkedIn:</span>{' '}
-                <a 
-                  href="https://linkedin.com/in/jasonkimbc"
-                  className="text-black underline hover:opacity-70 transition-opacity italic font-normal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  linkedin.com/in/jasonkimbc
-                </a>
-              </p>
-            </div>
-          </section>
-        </div>
+        <section className="mb-10">
+          <p className="mb-3">
+            Born in Korea, raised in Vancouver, based in New York and San Francisco.{' '}
+            <a href="https://www.ycombinator.com/verify/nbjeqrz7dcsfxmf6" target="_blank" rel="noopener noreferrer">YC alum</a>.{' '}
+            I build at the intersection of AI, cryptography, and markets, turning hard math into products people actually use.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Now</h2>
+          <p className="mb-2">
+            <a href="https://bigwhalelabs.com" target="_blank" rel="noopener noreferrer">Big Whale Labs</a>, an applied cryptography and machine learning lab. Backed by Balaji Srinivasan (ex Coinbase CTO), Samsung, Slow Ventures, M13, Road, and more.
+          </p>
+          <p>
+            Our current focus is{' '}
+            <a href="https://pigeon.trade" target="_blank" rel="noopener noreferrer">pigeon.trade</a>, a proprietary AI runtime that translates natural language into executable financial trades across 15+ venues. $111M+ in volume, 38K+ users.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Past</h2>
+          <ul className="space-y-4">
+            <PastItem name="Taloflow" role="Cofounder, YC W21">
+              Started as LocoNoco, building <a href="https://www.slideshare.net/slideshow/introducing-valence-by-loconoco/97205554" target="_blank" rel="noopener noreferrer">Valence</a>, a business logic IDE for non-technical users. Pivoted to an AI agent for DevOps cloud infrastructure. Grew the company from 0 to YC to 100+ engineering teams and profitability. ~$3M raised.
+            </PastItem>
+            <PastItem name="Grow" role="Head of Product, Employee #10">
+              Built back-office automation and ML for KYC and underwriting for major banks. Grew from 0 to millions in ARR. Acquired by ATB Financial.
+            </PastItem>
+            <PastItem name="Wiivv" role="Founding Team, Growth">
+              Joined pre-funding and helped grow from 0 to $250K in initial sales. Custom orthotics using computer vision and industrial 3D printing. Turned 2D images of feet into real footwear delivered to your door. Backed by Formation 8, Evonik, and more.
+            </PastItem>
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Writing</h2>
+          <ul className="space-y-2">
+            {[
+              { year: '2025', title: 'Terminal That Builds Terminals', href: 'https://x.com/jasonkimvc/status/2013632264358207671' },
+              { year: '2025', title: 'End of Average Software', href: 'https://x.com/jasonkimvc/status/2012604142800289860' },
+              { year: '2025', title: 'Claude Code Brood War', href: 'https://x.com/jasonkimvc/status/2009047493154132085' },
+              { year: '2025', title: 'Code Creation Is the Interface', href: 'https://x.com/jasonkimvc/status/2006907877152190606' },
+              { year: '2025', title: 'Everything Is Korea', href: 'https://x.com/jasonkimvc/status/1997373961957691405' },
+              { year: '2018', title: 'Tim: Your Cloud on Autopilot', href: 'https://medium.com/@JasonKimBC/tim-your-cloud-on-autopilot-107f75344f2a' },
+            ].map((post) => (
+              <li key={post.href} className="flex items-baseline gap-4">
+                <span className="text-secondary text-sm tabular-nums w-10 shrink-0">{post.year}</span>
+                <a href={post.href} target="_blank" rel="noopener noreferrer">{post.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Investments</h2>
+          <p className="text-secondary">
+            Not actively angel investing, but supporting friends and smart builders with small checks. Invested in 5+ YC startups including Gru Space, Bree, and more.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Links</h2>
+          <div className="flex gap-5">
+            <a href="https://twitter.com/jasonkimvc" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://github.com/json437" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/jasonkimbc" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </section>
       </main>
-
-        {/* Ocean Waves */}
-        <div className="ocean-waves">
-          <img src="/waves.svg" alt="Ocean Waves" className="waves-svg" />
-        </div>
-      </div>
     </>
-  )
+  );
 }
