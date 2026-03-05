@@ -82,8 +82,8 @@ export default function Home() {
             className="w-16 h-16 rounded-full object-cover shrink-0"
           />
           <div>
-            <h1 className="text-2xl font-bold mb-2">Jason Kim</h1>
-            <p className="text-secondary">
+            <h1 className="text-2xl font-bold mb-0.5 leading-tight">Jason Kim</h1>
+            <p className="text-secondary leading-snug">
               Product Builder and Founder
             </p>
           </div>
@@ -127,6 +127,7 @@ export default function Home() {
           <h2 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-4">Writing</h2>
           <ul className="space-y-2">
             {[
+              { year: '2026', title: 'The Messy Middle: The AI War For Middleware', href: 'https://x.com/jasonkimvc/status/2029629813464473808' },
               { year: '2025', title: 'Terminal That Builds Terminals', href: 'https://x.com/jasonkimvc/status/2013632264358207671' },
               { year: '2025', title: 'End of Average Software', href: 'https://x.com/jasonkimvc/status/2012604142800289860' },
               { year: '2025', title: 'Claude Code Brood War', href: 'https://x.com/jasonkimvc/status/2009047493154132085' },
